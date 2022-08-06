@@ -29,6 +29,8 @@ const defaultVal = {
 const TodoContext =  React.createContext<IContext>(defaultVal);
 
 function TodoProvider(props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) {
+  
+  const first = React.useContext()
   const [openModal, setOpenModal] = React.useState(false);
   const {item: todos, saveItem, loading, error} = useLocalStorage('TODOS_V1', []);
   const saveTodos = saveItem as ((newItem: {
