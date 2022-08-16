@@ -1,8 +1,8 @@
 import React from 'react';
 import './CreateTodoButton.css';
 
-function CreateTodoButton(props: {setOpenModal: React.Dispatch<React.SetStateAction<boolean>>}) {
-  const  onClickButton = (msg: string) => {
+function CreateTodoButton(props) {
+  const  onClickButton = (msg) => {
     props.setOpenModal(prevState => !prevState);
   };
 
@@ -12,7 +12,7 @@ function CreateTodoButton(props: {setOpenModal: React.Dispatch<React.SetStateAct
       onClick={() => onClickButton('Message')}>
       
       +
-      
+      S
       `</button>
   );
 }

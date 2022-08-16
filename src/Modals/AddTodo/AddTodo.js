@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import './AddTodo.css'
 
-function AddTodo({children}) {
+export default function AddTodo({children}) {
 
   return ReactDOM.createPortal(
     <div className="ModalBackground">
@@ -10,5 +10,3 @@ function AddTodo({children}) {
     document.getElementById('modal')  
   );
 }
-
-export {AddTodo}

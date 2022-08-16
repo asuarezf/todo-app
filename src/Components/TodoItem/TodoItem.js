@@ -1,7 +1,7 @@
 import React from 'react';
 import './TodoItem.css';
 
-function TodoItem(props: {text: string, completed: boolean, onCompleted: (text: string) => void, onDelete: (text: string) => void}) {
+function TodoItem(props) {
   
   return(
     <li className="TodoItem">

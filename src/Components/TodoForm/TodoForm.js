@@ -1,23 +1,17 @@
-import React, { useContext, useState } from 'react'
-import { TodoContext } from '../../Context/TodoContext'
+import React, {  useState } from 'react'
 import './TodoForm.css'
 
-export default function TodoForm() {
+export default function TodoForm(props) {
   const [newTodo, setNewTodo] = useState('')
-
-  const {
-    addTodo,
-    setOpenModal,
-  } = useContext(TodoContext)
   
   const onCancel = () => {
-    setOpenModal(prevState => !prevState)
+    props.setOpenModal(prevState => !prevState)
   }
 
   const onSubmit = (event) => {
     event.preventDefault();
-    addTodo(newTodo)
-    setOpenModal(prevState => !prevState)
+    props.createTodo(newTodo)
+    props.setOpenModal(prevState => !prevState)
   }
 
   const onChange = (event) => {
