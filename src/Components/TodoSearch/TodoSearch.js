@@ -1,10 +1,10 @@
 import './TodoSearch.css'
 
-function TodoSearch(props) {
+function TodoSearch({searchWord, setSearchWord, loading}) {
 
   const onSearchValueChange = (event) => {
-    if(props.setSearchWord !== undefined){
-      props.setSearchWord(event.target.value)
+    if(setSearchWord !== undefined){
+      setSearchWord(event.target.value)
     }
   }
 
@@ -13,7 +13,9 @@ function TodoSearch(props) {
       className='TodoSearch'
       placeholder="Cebolla"
       onChange={onSearchValueChange}
-      value={props.searchWord} />
+      value={searchWord} 
+      disabled={loading}
+      />
   );
 }
 

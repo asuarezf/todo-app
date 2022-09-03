@@ -27,18 +27,27 @@ function App() {
   
   return (
     <React.Fragment>
-      <TodoHeader>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-        <TodoSearch searchWord={searchWord} setSearchWord={setSearchWord} />
+      <TodoHeader loading={loading}>
+        <TodoCounter 
+          totalTodos={totalTodos} 
+          completedTodos={completedTodos}
+        />
+        <TodoSearch 
+          searchWord={searchWord}
+          setSearchWord={setSearchWord}
+        />
       </TodoHeader>
     
       <TodoList 
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        searchText={searchWord}
         onError={() => <TodosError />}
         onLoading={() =><TodosLoading />}
         onEmpty={() => <EmptyTodos />}
+        onNotResults={(searchWord) => <NotResults searchText={searchWord} />}
         render={todo => (
           <TodoItem
             key={todo.text}
@@ -86,8 +95,16 @@ function TodosLoading() {
 
 function EmptyTodos() {
   return(
-    <p>Empty Todos...</p>
+    <p>Create your first todo</p>
   )
 }
+
+function NotResults(props) {
+  return(
+    <p>Not results for {props.searchText}...</p>
+  )
+}
+
+
 
 export default App;
